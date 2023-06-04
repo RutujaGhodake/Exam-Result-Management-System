@@ -1,0 +1,81 @@
+{% load static %}
+<html>
+  <head>
+    <title>NTH</title>
+        <link rel="stylesheet"type="text/css" href="{% static 'css/style.css' %}" />
+	  <style media="screen">
+img{
+height:40%;
+width:25%;
+  border-radius: 25px;
+}
+marquee{
+margin-top:10px;
+}
+h1{
+  font-family: "Times New Roman", Times, serif;
+  text-shadow:0px 0px 20px blue;
+}
+.con{
+margin-top:px;
+}
+
+#r1{
+    margin-right:15px;
+    }
+     .jumbotron{
+    margin-top:80px;
+    margin-left:250px;
+    margin-right:250px;
+    box-shadow:0px 0px 10px white;
+    }
+</style>
+  </head>
+  {% include 'cdnlines.html' %}
+  <body>
+    <div class="wrapper">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	</div> 	<div class="content">
+<div class="container" id="r1">
+    <div class="row" >
+        <div class="offset-md-8 col-md-3 ">
+            <h3 class="text-right text-white mt-3">Hello, {{user.username|title}}</h3>
+        </div>
+            <div  class="col-md-1 mt-2">
+    <a href="{% url 'Logout' %}" class="text-right btn btn-primary mt-2">Logout</a>
+    </div>
+</div>
+</div>
+<div class="con">
+    <h1 class="text-center text-white" style="font-size:5vw">Welcome To NTH</h1>
+                <h3 class="text-center text-white mt-1" id="1"><i>Check Your Result Here!!</i></h3>
+</div>
+<div class="jumbotron bg-transparent text-center" id="j">
+    <a href="{% url 'ssc' %}" class="btn btn-warning mr-5">SSC</a>
+    <a href="{% url 'hsc' %}" class="btn btn-danger mr-5">HSC</a>
+    <a href="{% url 'degree' %}" class="btn btn-success mr-5">Degree</a>
+    <a href="{% url 'btech' %}" class="btn btn-info mr-5">BTech</a>
+</div>
+		</div>
+	<!--
+<marquee behavior="scroll" direction="left" scrollamount="13">
+<div class="container" id="con2">
+    <img  class="background-image" src="static/images/ssc1.webp" style="thumbnail">
+   <img  class="background-image" src="static/images/hsc.jpg">
+  <img  class="background-image" src="static/images/d11.jpg">
+   <img  class="background-image" src="static/images/btech.jpg">
+</div>
+    </marquee>
+    !-->
+</body>
+</html>
+

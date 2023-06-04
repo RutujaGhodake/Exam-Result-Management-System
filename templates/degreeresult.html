@@ -1,0 +1,121 @@
+{% load static %}
+<html>
+<head>
+    <title>NTH></title>
+</head>
+<style media="screen">
+    thead{
+    background-color:skyblue;
+    }
+     body{
+    background: url({% static 'images/l3.jpg' %})  center ;
+    -webkit-background-size:cover;
+
+    -moz--background-size:cover;
+    -o--background-size:cover;
+    background-size: cover;
+   }
+   #t1{
+height:400px;
+width:950px;
+}
+#t2{
+height:90px;
+width:950px;
+}
+</style>
+{% include 'cdnlines.html' %}
+<body>
+{% include 'navbar.html' %}
+{% if data %}
+<h2 class="text-center"><u>Degree Result- First Year</u></h2>
+ <div class='container-fluid' >
+      <div class="row">
+          <div class="offset-md-5">
+<h3>Name- <span style="color:blue">{{data.fname}} {{data.lname}}</span></h3>
+{% if re == 'Fail' %}
+<h3 >Result-  <span style="color:red">{{re}}</span></h3>
+{% else %}
+<h3>Result-  <span style="color:green">{{re}}</span></h3>
+{% endif %}
+<h3>Grade-  <span style="color:purple">{{g}}</span></h3>
+          </div>
+      </div>
+ </div>
+<center>
+<table class="table-bordered text-center" id="t1">
+    <thead class="table">
+    <tr>
+        <th>Subject</th>
+        <th>Marks Obtained</th>
+        <th>Max Marks</th>
+        <th>Result</th>
+    </tr>
+    </thead>
+       <tbody class="table-info">
+        <tr>
+        {% if data.bcomm >= 35 %}
+                <td>Buisness Communication</td><td>{{data.bcomm}}</td><td>100</td><td style="font-weight-bold; color:green">Pass</td>
+        {% else %}
+                <td>Buisness Communication</td><td>{{data.bcomm}}</td><td>100</td><td style="font-weight-bold; color:red">Fail</td>
+        {% endif %}
+    </tr>
+    <tr>
+        {% if data.pm >= 35 %}
+                <td>Principles Of Management</td><td>{{data.pm}}</td><td>100</td><td  style="font-weight-bold; color:green">Pass</td>
+        {% else %}
+                <td>Principles Of Management</td><td>{{data.pm}}</td><td>100</td><td style="font-weight-bold; color:red">Fail</td>
+        {% endif %}
+    </tr>
+    <tr>
+        {% if data.c >= 35 %}
+                <td>C Language</td><td>{{data.c}}</td><td>100</td><td  style="font-weight-bold; color:green">Pass</td>
+        {% else %}
+                <td>C Language</td><td>{{data.c}}</td><td>100</td><td style="font-weight-bold; color:red">Fail</td>
+        {% endif %}
+    </tr>
+     <tr>
+        {% if data.dbms >= 35 %}
+                <td>Database Management System</td><td>{{data.dbms}}</td><td>100</td><td style="font-weight-bold; color:green">Pass</td>
+        {% else %}
+                <td>Database Management System</td><td>{{data.dbms}}</td><td>100</td><td style="font-weight-bold; color:red">Fail</td>
+        {% endif %}
+    </tr>
+    <tr>
+        {% if data.stat >= 35 %}
+                <td>Statistics</td><td>{{data.stat}}</td><td>100</td><td style="font-weight-bold; color:green">Pass</td>
+        {% else %}
+                <td>Statistics</td><td>{{data.stat}}</td><td>100</td><td style="font-weight-bold; color:red">Fail</td>
+        {% endif %}
+    </tr>
+       <tr>
+           <td><b>Total</b></td><td><b>{{m}}</b></td><td><b>500</b></td><td><b>Percentage:  {{per}}%</b></td>
+       </tr>
+        </tbody>
+</table>
+</center>
+{% else %}
+<h3>No data available</h3>
+{% endif %}
+
+<center>
+<table class=" table-bordered text-center mt-5 mb-5" id="t2" >
+    <thead class="table">
+    <tr>
+        <th>Grades</th>
+        <th>A </th>
+        <th>B</th>
+        <th>C</th>
+        <th>D</th>
+        <th>E</th>
+    </tr>
+    </thead>
+       <tbody class="table-info">
+       <tr><td>Marks Obtained</td><td>419 & above</td><td>338 to 418</td><td>257 to 337</td><td> 175 to 256</td><td>174 & below</td>
+    </tr>
+       </tbody>
+</table>
+</center>
+
+</body>
+</html>

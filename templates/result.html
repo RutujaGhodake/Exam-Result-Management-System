@@ -1,0 +1,126 @@
+{% load static %}
+<html>
+<head>
+    <title>NTH></title>
+</head>
+<style media="screen">
+    thead{
+    background-color:skyblue;
+    }
+     body{
+    background: url({% static 'images/l2.jpg' %})  center ;
+    -webkit-background-size:cover;
+    -moz--background-size:cover;
+    -o--background-size:cover;
+    background-size: cover;
+   }
+#t1{
+height:400px;
+width:950px;
+}
+#t2{
+height:90px;
+width:950px;
+}
+    </style>
+<body>
+{% include 'cdnlines.html' %}
+{% include 'navbar.html' %}
+      <h2 style="text-align:center"><u>SSC Result</u></h2>
+  <div class='container-fluid' >
+      <div class="row">
+          <div class="offset-md-5">
+{% if data %}
+      <h3> Name- <span style="color:blue">{{data.fname}} {{data.lname}}</span></h3>
+{% if re == 'Fail' %}
+      <h3> Result- <span style="color:red">{{re}}</span></h3>>
+{% else %}
+      <h3> Result- <span style="color:green">{{re}}</span></h3>
+{% endif %}
+      <h3>Grade- <span style="color:purple">{{g}}</span></h3>
+    </div>
+      </div>
+  </div>
+<center>
+<table class="table-bordered text-center" id="t1">
+    <thead class="table">
+    <tr>
+        <th>Subject</th>
+        <th>Marks Obtained</th>
+        <th>Max Marks</th>
+        <th>Result</th>
+    </tr>
+    </thead>
+       <tbody class="table-info">
+    <tr>
+        {% if data.marathi >= 35 %}
+                <td>Marathi</td><td>{{data.marathi}}</td><td>100</td><td style="font-weight-bold; color:green">Pass</td>
+        {% else %}
+                <td>Marathi</td><td>{{data.marathi}}</td><td>100</td><td style="font-weight-bold; color:red">Fail</td>
+        {% endif %}
+    </tr>
+    <tr>
+        {% if data.hindi >= 35 %}
+                <td>Hindi</td><td>{{data.hindi}}</td><td>100</td><td style="font-weight-bold; color:green">Pass</td>
+        {% else %}
+                <td>Hindi</td><td>{{data.hindi}}</td><td>100</td><td style="font-weight-bold; color:red">Fail</td>
+        {% endif %}
+    </tr>
+    <tr>
+        {% if data.english >= 35 %}
+                <td>English</td><td>{{data.english}}</td><td>100</td><td style="font-weight-bold; color:green">Pass</td>
+        {% else %}
+                <td>English</td><td>{{data.english}}</td><td>100</td><td style="font-weight-bold; color:red">Fail</td>
+        {% endif %}
+    </tr>
+    <tr>
+        {% if data.math >= 35 %}
+                <td>Mathematics</td><td>{{data.math}}</td><td>100</td><td style="font-weight-bold; color:green">Pass</td>
+        {% else %}
+                <td>Mathematics</td><td>{{data.math}}</td><td>100</td><td style="font-weight-bold; color:red">Fail</td>
+        {% endif %}
+    </tr>
+    <tr>
+        {% if data.science >= 35 %}
+                <td>Science</td><td>{{data.science}}</td><td>100</td><td style="font-weight-bold; color:green">Pass</td>
+        {% else %}
+                <td>Science</td><td>{{data.science}}</td><td>100</td><td style="font-weight-bold; color:red">Fail</td>
+        {% endif %}
+    </tr>
+    <tr>
+        {% if data.ssci >= 35 %}
+                <td>Social Science</td><td>{{data.ssci}}</td><td>100</td><td style="font-weight-bold; color:green">Pass</td>
+        {% else %}
+                <td>Social Science</td><td>{{data.ssci}}</td><td>100</td><td style="font-weight-bold; color:red">Fail</td>
+        {% endif %}
+    </tr>
+       <tr>
+           <td><b>Total</b></td><td><b>{{m}}</b></td><td><b>600</b></td><td><b>Percentage:  {{per}}%</b></td>
+       </tr>
+        </tbody>
+</table>
+</center>
+{% else %}
+<h3>No data available</h3>
+{% endif %}
+<center>
+<table class=" table-bordered text-center mt-5 mb-5" id="t2" >
+    <thead class="table">
+    <tr>
+        <th>Grades</th>
+        <th>A </th>
+        <th>B</th>
+        <th>C</th>
+        <th>D</th>
+        <th>E</th>
+    </tr>
+    </thead>
+       <tbody class="table-info">
+       <tr><td>Marks Obtained</td><td>505 & above</td><td>407 to 504</td><td>309 to 406</td><td>210 to 308</td><td>209 & below</td>
+    </tr>
+       </tbody>
+</table>
+</center>
+</body>
+</html>
+
